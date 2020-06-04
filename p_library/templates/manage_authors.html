@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Create multiple authors</title>
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+	{{ author_formset.management_form }}
+	{% for form in author_formset %}
+		<br>
+			<table style="align:left;">
+				{{ form }}
+			</table>
+		<br>
+	{% endfor %}
+
+    <input type="submit" style="margin: 10px 0px 0px 250px;"
+		   value="Сохранить"/>
+</form>
+</body>
+</html>
