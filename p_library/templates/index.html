@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 
 Добро пожаловать в {{ title }}. <br>
 Тут собрано {{ books|length }} книг из моей личной коллекции.
@@ -25,3 +28,4 @@
     </tr>
     {% endfor %}
 </table>
+{% endblock %}

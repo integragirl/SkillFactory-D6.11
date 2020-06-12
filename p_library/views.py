@@ -5,7 +5,7 @@ from django.template import loader
 from django.urls import reverse_lazy
 
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
-from p_library.forms import AuthorForm, ReaderForm
+from p_library.forms import AuthorForm, ReaderForm, BookForm
 from p_library.models import Author, Book, Reader
 
 
@@ -128,3 +128,30 @@ class ReaderDelete(DeleteView):
     #fields = ["full_name", "birth_year", "country"]
     success_url = reverse_lazy('p_library:reader_list')
     template_name = 'reader_delete.html'
+
+
+class BookCreate(CreateView):
+    model = Book
+    form_class = BookForm
+    success_url = reverse_lazy('p_library:book_list')
+    template_name = 'book_edit.html'
+
+
+class BookRead(ListView):
+    model = Book
+    template_name = 'book_list.html'
+
+
+class BookUpdate(UpdateView):
+    model = Book
+    success_url = reverse_lazy('p_library:book_list')
+    #fields = []
+    form_class = BookForm
+    template_name = 'book_edit.html'
+
+
+class BookDelete(DeleteView):
+    model = Book
+    form_class = BookForm
+    success_url = reverse_lazy('p_library:book_list')
+    template_name = 'book_delete.html'

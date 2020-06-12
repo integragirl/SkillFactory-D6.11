@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Author, Reader
+from .models import Author, Reader, Book
 
 
 class AuthorForm(forms.ModelForm):
@@ -13,4 +13,10 @@ class ReaderForm(forms.ModelForm):
 
     class Meta:
         model = Reader
+        fields = '__all__'
+
+class BookForm(forms.ModelForm):
+
+    class Meta:
+        model = Book
         fields = '__all__'

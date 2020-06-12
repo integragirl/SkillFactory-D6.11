@@ -31,6 +31,7 @@ class Book(models.Model):
     author = models.ForeignKey("p_library.Author", on_delete=models.CASCADE,
                                verbose_name=_("Автор"),
                                related_name="book_author")
+    avatar = models.ImageField(upload_to='book/%d', blank=True)
 
     def __str__(self):
         return self.title

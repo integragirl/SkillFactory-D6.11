@@ -1,7 +1,12 @@
 from django.contrib import admin
+
+from django.conf.urls.static import static
+from django.conf import settings
+
 from django.urls import path
 from .views import AuthorCreate, AuthorRead, author_create_many, AuthorUpdate, AuthorDelete
 from .views import ReaderCreate, ReaderRead, ReaderUpdate, ReaderDelete
+from .views import BookCreate, BookRead, BookUpdate, BookDelete
 
 app_name = 'p_library'
 
@@ -19,4 +24,12 @@ urlpatterns = [
     path('reader/<int:pk>/', ReaderUpdate.as_view(), name='reader_edit'),
     path('reader/<int:pk>/delete/', ReaderDelete.as_view(),
          name='reader_delete'),
+
+    path('book/create/', BookCreate.as_view(), name='book_create'),
+    path('book/', BookRead.as_view(), name='book_list'),
+    path('book/<int:pk>/', BookUpdate.as_view(), name='book_edit'),
+    path('book/<int:pk>/delete/', BookDelete.as_view(),
+         name='book_delete'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

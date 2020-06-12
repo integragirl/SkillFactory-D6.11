@@ -1,4 +1,3 @@
-# d5_webinar
+# D5 Проект домашней библиотеки
 
-start app with:
-python manage.py runserver
+Старт приложения: python manage.py runserver

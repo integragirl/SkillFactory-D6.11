@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Список книг</title>
+</head>
+<body>
+	<ul>
+		{% for book in object_list %}
+		    <li><a href="{{book.id}}/">{{ book.title }}</a></li>
+		{% endfor %}
+	</ul>
+	<h2><a href="/book/create/">Добавить</a></h2>
+</body>
+</html>
+{% endblock %}

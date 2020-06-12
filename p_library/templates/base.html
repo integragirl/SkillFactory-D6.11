@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<body>
+    <div class="page-header">
+        <h2><a href="/">Моя библиотека</a></h2>
+        <h2><a href="/author/">Авторы</a></h2>
+        <h2><a href="/reader/">Читатели</a></h2>
+        <h2><a href="/book/">Книги</a></h2>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
